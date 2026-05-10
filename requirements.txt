@@ -1,0 +1,112 @@
+# ILLI AI Assistant - Professional Dependencies
+# Created by: Muhammad Farhan
+# Email: farhanhomeschooling519@gmail.com
+
+# Core Voice Recognition
+speechrecognition>=3.10.0
+
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Wikipedia Search
+wikipedia>=1.4.0
+
+# System Monitoring
+psutil>=5.9.0
+
+# Screen Automation
+pyautogui>=0.9.54
+
+# Windows API
+pywin32>=304
+
+# Email Support
+secure-smtplib>=0.0.1
+
+# Image Processing (for future features)
+Pillow>=9.0.0
+
+# Data Visualization (for dashboard)
+matplotlib>=3.5.0
+
+# Numerical Computing
+numpy>=1.21.0
+
+# OpenCV (for computer vision features)
+opencv-python>=4.5.0
+
+# Web Framework (for future web interface)
+flask>=2.0.0
+
+# Database (for contact storage)
+sqlite3
+
+# JSON Support (built-in)
+# tkinter (built-in)
+# os (built-in)
+# subprocess (built-in)
+# time (built-in)
+# threading (built-in)
+# queue (built-in)
+# math (built-in)
+# random (built-in)
+# json (built-in)
+# hashlib (built-in)
+# base64 (built-in)
+# datetime (built-in)
+# webbrowser (built-in)
+# glob (built-in)
+# sys (built-in)
+# shutil (built-in)
+
+# Optional Dependencies for Enhanced Features
+# Uncomment if needed:
+
+# Windows Shell Integration
+# winshell>=0.6
+
+# Advanced System Information
+# wmi>=1.5.1
+
+# Network Monitoring
+# scapy>=2.4.5
+
+# File System Monitoring
+# watchdog>=2.1.9
+
+# Advanced GUI
+# customtkinter>=5.0.0
+
+# Machine Learning (for future AI features)
+# scikit-learn>=1.0.0
+# tensorflow>=2.8.0
+
+# Natural Language Processing
+# nltk>=3.7
+# spacy>=3.4.0
+
+# Web Scraping
+# beautifulsoup4>=4.10.0
+# requests>=2.27.0
+
+# Database ORM
+# sqlalchemy>=1.4.0
+
+# API Framework
+# fastapi>=0.70.0
+
+# Task Scheduling
+# schedule>=1.1.0
+
+# Configuration Management
+# python-dotenv>=0.19.0
+
+# Logging
+# loguru>=0.6.0
+
+# Testing
+# pytest>=6.2.0
+
+# Code Quality
+# black>=22.0.0
+# flake8>=4.0.0

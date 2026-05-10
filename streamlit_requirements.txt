@@ -1,0 +1,88 @@
+# ILLI Streamlit Dashboard Requirements
+# Created by: Muhammad Farhan
+# Email: farhanhomeschooling519@gmail.com
+
+# Core Framework
+streamlit>=1.28.0
+
+# System Monitoring
+psutil>=5.9.0
+
+# Voice Recognition and TTS
+speechrecognition>=3.10.0
+pyttsx3>=2.90
+
+# WhatsApp Integration
+pywhatkit>=1.0.0
+
+# Email Support
+# Note: Email functionality requires SMTP configuration
+# smtplib is built-in
+# email.mime is built-in
+
+# System Libraries (built-in)
+# os - File system operations
+# shutil - File operations
+# subprocess - System commands
+# platform - System information
+# threading - Background threads
+# queue - Thread communication
+# time - Time operations
+# json - Configuration storage
+# datetime - Date and time
+# hashlib - Hashing
+# base64 - Encoding
+
+# Web Integration
+# webbrowser is built-in
+
+# Optional Dependencies for Enhanced Features:
+
+# Advanced System Monitoring
+# wmi>=1.5.1 - Windows system information
+# GPUtil>=1.4.0 - GPU monitoring
+
+# Enhanced Voice Recognition
+# vosk>=0.3.20 - Offline speech recognition
+# sounddevice>=0.4.4 - Audio processing
+# numpy>=1.21.0 - Audio processing
+
+# Advanced File Operations
+# watchdog>=2.1.9 - File system monitoring
+# send2trash>=1.8.0 - Move to trash
+
+# Network Tools
+# scapy>=2.4.5 - Network packet analysis
+# netifaces>=0.11.0 - Network interfaces
+
+# Security and Encryption
+# cryptography>=3.4.8 - Data encryption
+# bcrypt>=3.2.0 - Password hashing
+
+# Database for Configuration
+# sqlite3 - Built-in
+# SQLAlchemy>=1.4.0 - Database ORM
+
+# Advanced UI Components
+# plotly>=5.0.0 - Interactive charts
+# altair>=4.2.0 - Data visualization
+# streamlit-aggrid>=0.3.0 - Advanced data grids
+
+# Development and Testing
+# pytest>=6.2.0 - Testing framework
+# black>=22.0.0 - Code formatting
+# flake8>=4.0.0 - Code linting
+
+# Documentation
+# mkdocs>=1.4.0 - Documentation generation
+# mkdocs-material>=8.5.0 - Material theme
+
+# Deployment
+# streamlit-server-local>=0.1.0 - Local deployment
+# streamlit-authenticator>=0.2.0 - Authentication
+
+# Note: Some features may require additional setup:
+# - WhatsApp: pywhatkit requires WhatsApp Web to be open
+# - Email: SMTP server configuration required
+# - Voice: Microphone permissions required
+# - System: Administrator privileges for some operations
