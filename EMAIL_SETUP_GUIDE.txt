@@ -1,0 +1,75 @@
+GMAIL APP PASSWORD SETUP GUIDE FOR ILLI
+========================================
+
+STEP 1: ENABLE 2-FACTOR AUTHENTICATION
+----------------------------------------
+1. Go to: https://myaccount.google.com/security
+2. Sign in with your email: farhanhomeschooling519@gmail.com
+3. Look for "2-Step Verification" section
+4. Click on "2-Step Verification" 
+5. Turn ON 2-factor authentication
+6. Follow the setup process (phone number or authenticator app)
+
+STEP 2: GENERATE APP PASSWORD
+----------------------------------
+1. After 2FA is enabled, go to: https://myaccount.google.com/apppasswords
+2. Sign in with your email: farhanhomeschooling519@gmail.com
+3. Under "Select app", choose: "Other (Custom name)"
+4. Under "Select device", choose: "Windows Computer" or "Other"
+5. In the name field, type: ILLI Virtual Assistant
+6. Click "GENERATE"
+7. Copy the 16-character password (it will look like: xxxx xxxx xxxx xxxx)
+8. Save this password securely
+
+STEP 3: UPDATE ILLI SCRIPT
+------------------------------
+1. Open the ILLI script: g:/Virtual Assistant/illi_final.py
+2. Find line around 35 that says:
+   sender_password = "your-app-password"
+3. Replace "your-app-password" with your generated app password
+4. Save the file
+
+STEP 4: TEST EMAIL FUNCTIONALITY
+----------------------------------
+1. Start ILLI: Double-click "START_ILLI_FINAL.bat"
+2. Say: "send email to test@gmail.com subject Test message This is a test email from ILLI"
+3. ILLI should send the email successfully
+
+IMPORTANT NOTES:
+--------------
+- The app password is NOT your regular Gmail password
+- Keep the app password secure and private
+- You can generate multiple app passwords for different apps
+- If you lose the app password, generate a new one
+- 2FA must be enabled to generate app passwords
+
+DIRECT LINKS:
+-------------
+Google Account Security: https://myaccount.google.com/security
+App Passwords Page: https://myaccount.google.com/apppasswords
+2FA Setup: https://myaccount.google.com/security/2stepverification
+
+TROUBLESHOOTING:
+---------------
+- If email doesn't send, check:
+  * 2FA is enabled
+  * App password is correct (no spaces)
+  * Less secure apps access is turned ON
+  * Gmail account is not blocked
+
+- Common errors:
+  * "Application-specific password required" -> Enable 2FA
+  * "Invalid credentials" -> Check app password spelling
+  * "SMTP error" -> Check internet connection
+
+QUICK START:
+-----------
+1. Go to: https://myaccount.google.com/apppasswords
+2. Select app: "Other (Custom name)"
+3. Name: ILLI Virtual Assistant
+4. Click GENERATE
+5. Copy the 16-character password
+6. Update line 35 in illi_final.py
+7. Start ILLI and test email
+
+Your ILLI will be able to send emails once this is setup!
