@@ -90,11 +90,13 @@ class ILLICompleteFixed:
                 "C:\\Users\\{user}\\AppData\\Local\\WhatsApp\\WhatsApp.exe",
                 "C:\\Program Files\\WindowsApps\\*\\WhatsApp.exe",
                 "C:\\Program Files\\WhatsApp\\WhatsApp.exe",
+                "C:\\Users\\{user}\\AppData\\Local\\Programs\\WhatsApp\\WhatsApp.exe",
                 "https://web.whatsapp.com"
             ],
             'instagram': [
                 "C:\\Users\\{user}\\AppData\\Local\\Instagram\\Instagram.exe",
                 "C:\\Program Files\\WindowsApps\\*\\Instagram.exe",
+                "C:\\Users\\{user}\\AppData\\Local\\Programs\\Instagram\\Instagram.exe",
                 "https://instagram.com"
             ],
             'chrome': [
@@ -105,6 +107,9 @@ class ILLICompleteFixed:
             'vscode': [
                 "C:\\Users\\{user}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
                 "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+                "C:\\Program Files (x86)\\Microsoft VS Code\\Code.exe",
+                "C:\\Users\\{user}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+                "Code.exe",
                 "https://code.visualstudio.com"
             ],
             'linkedin': [
@@ -121,7 +126,16 @@ class ILLICompleteFixed:
             ],
             'camera': [
                 "microsoft.windows.camera:",
-                "C:\\Windows\\System32\\WindowsCamera.exe"
+                "C:\\Windows\\System32\\WindowsCamera.exe",
+                "start microsoft.windows.camera:",
+                "explorer.exe shell:appsfolder\\Microsoft.WindowsCamera_8wekyb3d8bbwe!App"
+            ],
+            'blender': [
+                "C:\\Program Files\\Blender Foundation\\Blender 3.*\\blender.exe",
+                "C:\\Program Files (x86)\\Blender Foundation\\Blender 3.*\\blender.exe",
+                "C:\\Users\\{user}\\AppData\\Local\\Programs\\Blender\\blender.exe",
+                "blender.exe",
+                "https://blender.org"
             ],
             'notepad': [
                 "notepad.exe",
@@ -427,15 +441,15 @@ class ILLICompleteFixed:
                     
                     with self.microphone as source:
                         # Enhanced audio settings for better recognition
-                        self.recognizer.adjust_for_ambient_noise(source, duration=2)
-                        self.recognizer.pause_threshold = 1.0
-                        self.recognizer.non_speaking_duration = 0.8
-                        self.recognizer.phrase_threshold = 0.3
+                        self.recognizer.adjust_for_ambient_noise(source, duration=1)
+                        self.recognizer.pause_threshold = 0.8
+                        self.recognizer.non_speaking_duration = 0.5
+                        self.recognizer.phrase_threshold = 0.2
                         self.recognizer.dynamic_energy_threshold = True
                         self.recognizer.dynamic_energy_adjustment_damping = 0.15
                         
-                        # Longer timeout and phrase limit for full requests
-                        audio = self.recognizer.listen(source, timeout=10, phrase_time_limit=12)
+                        # Optimized timeout and phrase limit
+                        audio = self.recognizer.listen(source, timeout=8, phrase_time_limit=8)
                     
                     self.listening_indicator.config(text="🟡 RECOGNIZING", fg=self.colors['yellow'])
                     self.update_voice_canvas("RECOGNIZING")
@@ -497,6 +511,12 @@ class ILLICompleteFixed:
                 self.launch_app('whatsapp')
             elif 'instagram' in command or 'insta' in command:
                 self.launch_app('instagram')
+            elif 'vs code' in command or 'vscode' in command or 'visual studio code' in command:
+                self.launch_app('vscode')
+            elif 'camera' in command:
+                self.launch_app('camera')
+            elif 'blender' in command:
+                self.launch_app('blender')
             elif 'chrome' in command or 'browser' in command:
                 self.launch_app('chrome')
             elif 'vs code' in command or 'vscode' in command or 'visual studio' in command:
@@ -663,6 +683,9 @@ class ILLICompleteFixed:
         # Enhanced information commands
         elif 'time' in command:
             self.tell_time()
+        elif 'hello' in command or 'hi' in command or 'hey' in command:
+            self.speak("Hello! How can I help you today?")
+            self.add_log_entry("Greeting response", "info")
         elif any(word in command for word in ['what is', 'search', 'wikipedia']):
             search_term = command.replace('what is', '').replace('search', '').replace('wikipedia', '').strip()
             if search_term:
@@ -679,7 +702,9 @@ class ILLICompleteFixed:
             self.show_help()
         
         else:
-            self.speak("I didn't understand that command. Say 'help' to see what I can do.")
+            # Enhanced response for unrecognized commands
+            response = f"I didn't understand '{command}'. Try saying 'help' for available commands."
+            self.speak(response)
             self.add_log_entry(f"Unrecognized command: {command}", "warning")
     
     def launch_app(self, app_name):
@@ -694,22 +719,34 @@ class ILLICompleteFixed:
         # Try to find app in system first
         found = False
         
-        # Check if app is already running
+        # Check if app is already running - Enhanced detection
         try:
+            app_variants = {
+                'whatsapp': ['whatsapp.exe', 'WhatsApp.exe'],
+                'instagram': ['instagram.exe', 'Instagram.exe'],
+                'vscode': ['code.exe', 'Code.exe'],
+                'chrome': ['chrome.exe', 'Chrome.exe'],
+                'discord': ['discord.exe', 'Discord.exe'],
+                'spotify': ['spotify.exe', 'Spotify.exe']
+            }
+            
+            target_names = app_variants.get(app_name.lower(), [f'{app_name}.exe', f'{app_name.capitalize()}.exe'])
+            
             for proc in psutil.process_iter(['pid', 'name']):
                 try:
-                    if app_name.lower() in proc.info['name'].lower():
+                    proc_name = proc.info['name']
+                    if any(target.lower() in proc_name.lower() for target in target_names):
                         # Bring existing window to front
-                        self.bring_window_to_front(proc.info['name'])
+                        self.bring_window_to_front(proc_name)
                         self.speak(f"{app_name} is already running")
-                        self.add_log_entry(f"{app_name} already running", "info")
+                        self.add_log_entry(f"{app_name} already running (PID: {proc.info['pid']})", "info")
                         self.update_app_canvas(f"{app_name.upper()} ALREADY RUNNING")
                         found = True
                         break
                 except:
                     continue
-        except:
-            pass
+        except Exception as e:
+            self.add_log_entry(f"Error checking running apps: {str(e)}", "warning")
         
         if not found:
             # Try all paths
