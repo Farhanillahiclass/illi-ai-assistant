@@ -464,17 +464,17 @@ class ILLICompleteUltraFixed:
                     self.voice_status.config(text="🟢 Voice: LISTENING", fg=self.colors['green'])
                     
                     with self.microphone as source:
-                        # Ultra optimized audio settings
-                        self.recognizer.adjust_for_ambient_noise(source, duration=2)
-                        self.recognizer.pause_threshold = 1.2
-                        self.recognizer.non_speaking_duration = 0.8
-                        self.recognizer.phrase_threshold = 0.1
+                        # Ultra optimized audio settings - FIXED
+                        self.recognizer.adjust_for_ambient_noise(source, duration=1)
+                        self.recognizer.pause_threshold = 0.8
+                        self.recognizer.non_speaking_duration = 0.5
+                        self.recognizer.phrase_threshold = 0.3
                         self.recognizer.dynamic_energy_threshold = True
-                        self.recognizer.dynamic_energy_adjustment_damping = 0.1
-                        self.recognizer.energy_threshold = 300
+                        self.recognizer.dynamic_energy_adjustment_damping = 0.15
+                        self.recognizer.energy_threshold = 200
                         
-                        # Extended timeout for complete commands
-                        audio = self.recognizer.listen(source, timeout=12, phrase_time_limit=10)
+                        # Optimized timeout for better recognition
+                        audio = self.recognizer.listen(source, timeout=8, phrase_time_limit=8)
                     
                     self.voice_status.config(text="🟡 Voice: RECOGNIZING", fg=self.colors['yellow'])
                     
@@ -484,8 +484,8 @@ class ILLICompleteUltraFixed:
                         self.add_command_history(f"Voice: {command}")
                         self.process_command(command)
                     except sr.UnknownValueError:
-                        self.add_log_entry("Could not understand - Please speak clearly", "warning")
-                        self.speak("I didn't catch that. Please try again.")
+                        self.add_log_entry("Could not understand", "warning")
+                        # Don't speak on every error to avoid interruption
                     except sr.RequestError:
                         self.add_log_entry("Speech recognition error", "error")
                 else:
@@ -500,7 +500,7 @@ class ILLICompleteUltraFixed:
         """Process voice commands with ultra enhanced recognition"""
         self.add_log_entry(f"Processing: {command}")
         
-        # Enhanced greeting commands
+        # Enhanced greeting commands - FIXED ORDER
         if any(word in command for word in ['hello', 'hi', 'hey', 'good morning', 'good evening', 'assalam']):
             responses = [
                 "Hello! How can I help you today?",
@@ -541,8 +541,8 @@ class ILLICompleteUltraFixed:
                 self.launch_app('chrome')
                 app_found = True
             
-            # Check for File Explorer
-            elif any(word in command for word in ['file folder', 'file explorer', 'explorer', 'files', 'my computer']):
+            # Check for File Explorer - ENHANCED
+            elif any(word in command for word in ['file folder', 'file explorer', 'explorer', 'files', 'my computer', 'file manager']):
                 self.launch_app('files')
                 app_found = True
             
@@ -628,8 +628,15 @@ class ILLICompleteUltraFixed:
                 self.speak("Please specify which app to close")
                 self.add_log_entry("App name not specified for closing", "warning")
         
-        # Enhanced YouTube controls
-        elif 'youtube' in command or 'play' in command:
+        # Enhanced YouTube controls - FIXED ORDER
+        elif 'play' in command and ('video' in command or 'youtube' in command):
+            # Extract video name for search
+            video_name = command.replace('play', '').replace('video', '').replace('youtube', '').replace('of', '').strip()
+            if video_name:
+                self.youtube_search(video_name)
+            else:
+                self.launch_app('youtube')
+        elif 'youtube' in command:
             if 'next' in command or 'skip' in command:
                 self.youtube_next_video()
             elif 'previous' in command or 'back' in command:
@@ -639,12 +646,7 @@ class ILLICompleteUltraFixed:
             elif 'resume' in command:
                 self.youtube_resume_video()
             else:
-                # Extract video name for search
-                video_name = command.replace('play', '').replace('video', '').replace('youtube', '').replace('of', '').strip()
-                if video_name:
-                    self.youtube_search(video_name)
-                else:
-                    self.launch_app('youtube')
+                self.launch_app('youtube')
         
         # Enhanced WhatsApp commands
         elif any(word in command for word in ['whatsapp', 'message', 'send']):
@@ -717,19 +719,21 @@ class ILLICompleteUltraFixed:
                 'notepad': ['notepad.exe', 'Notepad.exe'],
                 'calculator': ['calc.exe', 'Calculator.exe'],
                 'camera': ['windowscamera.exe', 'WindowsCamera.exe']
-            },
+            }
             
             target_names = app_variants.get(app_name.lower(), [f'{app_name}.exe', f'{app_name.capitalize()}.exe'])
             
-            # Check if app is already running
+            # Check if app is already running - FIXED
             for proc in psutil.process_iter(['pid', 'name']):
                 try:
-                    proc_name = proc.info['name']
-                    if any(target.lower() in proc_name.lower() for target in target_names):
-                        self.bring_window_to_front(proc_name)
-                        self.speak(f"{app_name} is already running")
-                        self.add_log_entry(f"{app_name} already running (PID: {proc.info['pid']})")
-                        return
+                    proc_info = proc.info
+                    if proc_info and 'name' in proc_info:
+                        proc_name = proc_info['name']
+                        if any(target.lower() in proc_name.lower() for target in target_names):
+                            self.bring_window_to_front(proc_name)
+                            self.speak(f"{app_name} is already running")
+                            self.add_log_entry(f"{app_name} already running (PID: {proc_info['pid']})")
+                            return
                 except:
                     continue
         except Exception as e:
