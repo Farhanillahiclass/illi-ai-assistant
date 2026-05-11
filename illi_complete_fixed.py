@@ -440,16 +440,17 @@ class ILLICompleteFixed:
                     self.update_voice_canvas("LISTENING")
                     
                     with self.microphone as source:
-                        # Enhanced audio settings for better recognition
-                        self.recognizer.adjust_for_ambient_noise(source, duration=1)
-                        self.recognizer.pause_threshold = 0.8
-                        self.recognizer.non_speaking_duration = 0.5
-                        self.recognizer.phrase_threshold = 0.2
+                        # Optimized audio settings for maximum accuracy
+                        self.recognizer.adjust_for_ambient_noise(source, duration=2)
+                        self.recognizer.pause_threshold = 1.2
+                        self.recognizer.non_speaking_duration = 0.8
+                        self.recognizer.phrase_threshold = 0.1
                         self.recognizer.dynamic_energy_threshold = True
-                        self.recognizer.dynamic_energy_adjustment_damping = 0.15
+                        self.recognizer.dynamic_energy_adjustment_damping = 0.1
+                        self.recognizer.energy_threshold = 300
                         
-                        # Optimized timeout and phrase limit
-                        audio = self.recognizer.listen(source, timeout=8, phrase_time_limit=8)
+                        # Extended timeout for complete commands
+                        audio = self.recognizer.listen(source, timeout=12, phrase_time_limit=10)
                     
                     self.listening_indicator.config(text="🟡 RECOGNIZING", fg=self.colors['yellow'])
                     self.update_voice_canvas("RECOGNIZING")
@@ -460,7 +461,8 @@ class ILLICompleteFixed:
                         self.add_command_history(command)
                         self.process_command(command)
                     except sr.UnknownValueError:
-                        self.add_log_entry("Could not understand", "warning")
+                        self.add_log_entry("Could not understand - Please speak clearly", "warning")
+                        self.speak("I didn't catch that. Please try again.")
                         self.listening_indicator.config(text="🔴 IDLE", fg=self.colors['text_dim'])
                         self.update_voice_canvas("IDLE")
                     except sr.RequestError:
@@ -511,7 +513,7 @@ class ILLICompleteFixed:
                 self.launch_app('whatsapp')
             elif 'instagram' in command or 'insta' in command:
                 self.launch_app('instagram')
-            elif 'vs code' in command or 'vscode' in command or 'visual studio code' in command:
+            elif 'vs code' in command or 'vscode' in command or 'visual studio code' in command or 'visual studio' in command:
                 self.launch_app('vscode')
             elif 'camera' in command:
                 self.launch_app('camera')
@@ -519,27 +521,19 @@ class ILLICompleteFixed:
                 self.launch_app('blender')
             elif 'chrome' in command or 'browser' in command:
                 self.launch_app('chrome')
-            elif 'vs code' in command or 'vscode' in command or 'visual studio' in command:
-                self.launch_app('vscode')
+            elif 'file folder' in command or 'file explorer' in command or 'explorer' in command or 'files' in command:
+                self.launch_app('files')
             elif 'linkedin' in command:
                 self.launch_app('linkedin')
             elif 'github' in command:
                 self.launch_app('github')
             elif 'canva' in command:
                 self.launch_app('canva')
-            elif 'camera' in command:
-                self.launch_app('camera')
-            elif 'notepad' in command:
-                self.launch_app('notepad')
-            elif 'calculator' in command or 'calc' in command:
-                self.launch_app('calculator')
-            elif 'files' in command or 'explorer' in command:
-                self.launch_app('files')
             elif 'youtube' in command:
                 self.launch_app('youtube')
             elif 'gmail' in command:
                 self.launch_app('gmail')
-            elif 'chatgpt' in command or 'charge gpt' in command or 'open ai' in command:
+            elif 'chatgpt' in command or 'chat gpt' in command:
                 self.launch_app('chatgpt')
             elif 'spotify' in command:
                 self.launch_app('spotify')
@@ -551,36 +545,19 @@ class ILLICompleteFixed:
                 self.launch_app('teams')
             elif 'zoom' in command:
                 self.launch_app('zoom')
-            elif 'skype' in command:
-                self.launch_app('skype')
-            elif 'telegram' in command:
-                self.launch_app('telegram')
-            elif 'signal' in command:
-                self.launch_app('signal')
-            elif 'facebook' in command:
-                self.launch_app('facebook')
-            elif 'twitter' in command:
-                self.launch_app('twitter')
-            elif 'reddit' in command:
-                self.launch_app('reddit')
-            elif 'pinterest' in command:
-                self.launch_app('pinterest')
-            elif 'tiktok' in command:
-                self.launch_app('tiktok')
-            elif 'snapchat' in command:
-                self.launch_app('snapchat')
-            elif 'task manager' in command or 'taskmanager' in command:
-                self.launch_app('taskmanager')
-            elif 'cmd' in command:
+            elif 'notepad' in command:
+                self.launch_app('notepad')
+            elif 'calculator' in command or 'calc' in command:
+                self.launch_app('calculator')
+            elif 'cmd' in command or 'command prompt' in command:
                 self.launch_app('cmd')
             elif 'powershell' in command:
                 self.launch_app('powershell')
-            elif 'control panel' in command or 'controlpanel' in command:
-                self.launch_app('controlpanel')
-            elif 'settings' in command:
-                self.launch_app('settings')
+            elif 'task manager' in command:
+                self.launch_app('taskmanager')
             else:
-                self.speak("I didn't understand which app to open. Please specify app name.")
+                self.speak("Please specify which app to open")
+                self.add_log_entry("App name not specified", "warning")
         
         # Enhanced app closing commands
         elif any(word in command for word in ['close', 'exit', 'quit', 'stop']):
@@ -666,7 +643,12 @@ class ILLICompleteFixed:
         
         # Enhanced WhatsApp commands
         elif any(word in command for word in ['whatsapp', 'message', 'send']):
-            self.process_whatsapp_command(command)
+            if 'message' in command and ('in' in command or 'to' in command):
+                self.process_whatsapp_command(command)
+            elif 'whatsapp' in command:
+                self.launch_app('whatsapp')
+            else:
+                self.process_whatsapp_command(command)
         
         # Enhanced system controls
         elif 'shutdown' in command:
@@ -703,7 +685,7 @@ class ILLICompleteFixed:
         
         else:
             # Enhanced response for unrecognized commands
-            response = f"I didn't understand '{command}'. Try saying 'help' for available commands."
+            response = f"I didn't understand '{command}'. Say 'help' for available commands."
             self.speak(response)
             self.add_log_entry(f"Unrecognized command: {command}", "warning")
     
@@ -723,12 +705,30 @@ class ILLICompleteFixed:
         try:
             app_variants = {
                 'whatsapp': ['whatsapp.exe', 'WhatsApp.exe'],
-                'instagram': ['instagram.exe', 'Instagram.exe'],
+                'instagram': ['instagram.exe', 'Instagram.exe'], 
                 'vscode': ['code.exe', 'Code.exe'],
                 'chrome': ['chrome.exe', 'Chrome.exe'],
                 'discord': ['discord.exe', 'Discord.exe'],
-                'spotify': ['spotify.exe', 'Spotify.exe']
-            }
+                'spotify': ['spotify.exe', 'Spotify.exe'],
+                'youtube': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'gmail': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'chatgpt': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'linkedin': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'github': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'facebook': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'twitter': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'reddit': ['chrome.exe', 'msedge.exe', 'firefox.exe'],
+                'teams': ['teams.exe', 'Teams.exe'],
+                'zoom': ['zoom.exe', 'Zoom.exe'],
+                'skype': ['skype.exe', 'Skype.exe'],
+                'telegram': ['telegram.exe', 'Telegram.exe'],
+                'signal': ['signal.exe', 'Signal.exe'],
+                'slack': ['slack.exe', 'Slack.exe'],
+                'blender': ['blender.exe', 'Blender.exe'],
+                'notepad': ['notepad.exe', 'Notepad.exe'],
+                'calculator': ['calc.exe', 'Calculator.exe'],
+                'camera': ['windowscamera.exe', 'WindowsCamera.exe']
+            },
             
             target_names = app_variants.get(app_name.lower(), [f'{app_name}.exe', f'{app_name.capitalize()}.exe'])
             
