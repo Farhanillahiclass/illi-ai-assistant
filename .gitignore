@@ -1,0 +1,26 @@
+# ILLI AI Professional - Git Ignore 
+ 
+# Exclude backup files 
+backup_* 
+*.bak 
+ 
+# Exclude temporary files 
+*.tmp 
+*.temp 
+ 
+# Exclude documentation files 
+*.md 
+ 
+# Exclude old versions 
+*_OLD* 
+*_SIMPLE* 
+*_WORKING* 
+ 
+# Exclude test files 
+test_* 
+TEST_* 
+ 
+# Exclude batch files except essential ones 
+*.bat 
+!START_ILLI_PROFESSIONAL_FINAL.bat 
+!CLEANUP_GITHUB.cmd 
