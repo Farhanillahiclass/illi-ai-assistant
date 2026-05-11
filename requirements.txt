@@ -1,0 +1,77 @@
+# ILLI AI Professional - Complete Dependencies
+# Created by Muhammad Farhan
+# Email: farhanhomeschooling519@gmail.com
+
+# Core Dependencies
+psutil>=5.9.0
+speechrecognition>=3.10.0
+pyttsx3>=2.90
+requests>=2.28.0
+GitPython>=3.1.0
+cryptography>=3.4.0
+
+# GUI Dependencies
+tkinter  # Usually comes with Python
+
+# System Dependencies
+platform  # Usually comes with Python
+threading  # Usually comes with Python
+subprocess  # Usually comes with Python
+os  # Usually comes with Python
+sys  # Usually comes with Python
+time  # Usually comes with Python
+datetime  # Usually comes with Python
+json  # Usually comes with Python
+re  # Usually comes with Python
+math  # Usually comes with Python
+random  # Usually comes with Python
+hashlib  # Usually comes with Python
+base64  # Usually comes with Python
+pathlib  # Usually comes with Python
+logging  # Usually comes with Python
+
+# Optional Dependencies for Enhanced Features
+# Uncomment if needed:
+
+# For enhanced voice recognition
+# vosk>=0.3.45
+# pyaudio>=0.2.11
+
+# For enhanced system monitoring
+# winshell>=0.6  # Windows shell access
+# wmi>=1.5.1    # Windows Management Instrumentation
+
+# For enhanced web capabilities
+# selenium>=4.8.0
+# beautifulsoup4>=4.11.0
+
+# For enhanced security
+# bcrypt>=4.0.0
+# pyotp>=2.8.0
+
+# For enhanced file operations
+# send2trash>=1.8.0
+# watchdog>=2.1.0
+
+# For enhanced networking
+# scapy>=2.5.0
+# netifaces>=0.11.0
+
+# For enhanced data processing
+# pandas>=1.5.0
+# numpy>=1.24.0
+
+# For enhanced notifications
+# plyer>=2.1.0
+# win10toast>=0.9  # Windows notifications
+
+# For enhanced clipboard operations
+# pyperclip>=1.8.0
+
+# For enhanced image processing
+# pillow>=9.0.0
+# opencv-python>=4.7.0
+
+# For enhanced audio processing
+# pydub>=0.25.0
+# sounddevice>=0.4.0
