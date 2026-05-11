@@ -227,13 +227,13 @@ class ILLI_AI_Simple_Working:
             os.path.join(os.environ.get('PROGRAMFILES', ''), 'Epic Games', 'Launcher', 'Portal', 'Binaries', 'Win32', 'EpicGamesLauncher.exe'),
             os.path.join(os.environ.get('PROGRAMFILES', ''), 'Origin', 'Origin.exe'),
             os.path.join(os.environ.get('PROGRAMFILES', ''), 'Ubisoft', 'Ubisoft Game Launcher', 'upc.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), 'Microsoft VS Code', 'Code.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), 'Notepad++', 'notepad++.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), ''), '7-Zip', '7z.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), ''), 'VideoLAN', 'VLC', 'vlc.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), ''), 'Spotify', 'Spotify.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), ''), 'Telegram Desktop', 'Telegram.exe'),
-            os.path.join(os.environ.get('PROGRAMFILES'), ''), 'Signal', 'signal.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'Microsoft VS Code', 'Code.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'Notepad++', 'notepad++.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), '7-Zip', '7z.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'VideoLAN', 'VLC', 'vlc.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'Spotify', 'Spotify.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'Telegram Desktop', 'Telegram.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'Signal', 'signal.exe'),
         ]
         
         # Check which apps exist and add to paths
