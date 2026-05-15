@@ -5,20 +5,20 @@
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
-![Build](https://img.shields.io/badge/Build-v1.2.4-10b981)
+![Build](https://img.shields.io/badge/Build-v1.2.5-10b981)
 ![License](https://img.shields.io/badge/License-MIT-f59e0b)
 ![Platform](https://img.shields.io/badge/Platform-Windows-00ffff)
 
 ## 🚀 Features (No-API Required)
 
-- **Neural Core**: Immersive Streamlit HUD with Glassmorphism and 3D animated orb.
+- **Neural Core**: Immersive High-Performance Tkinter HUD with 3D animated orb.
 - **Voice Command Center**: Offline Speech Recognition with **Adaptive Voice Training**.
 - **OS Command Center**: Deep hardware integration for process and file management.
 - **Tactical Biometrics**: Real-time CPU, RAM, and Network energy bars with **Hex-Grid HUD**.
 - **Ghost Comms**: Native WhatsApp and Email automation.
 
 ## 🛠️ Tech Stack
-- **Frontend**: Streamlit, Lottie, Custom CSS
+- **Frontend**: Python Tkinter (Local Native GUI)
 - **Backend**: Python 3.13
 - **System**: psutil, subprocess, os
 - **Voice**: speech_recognition, pyttsx3

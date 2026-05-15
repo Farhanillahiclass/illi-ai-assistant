@@ -26,7 +26,8 @@ if "%choice%"=="2" (
     rmdir /s /q dist build *.egg-info 2>nul
     del /f /q ILLI_AI_ENHANCED.py ILLI_AI_FIXED.py 2>nul
     git add .
-    git commit -m "Production: Ghost-Protocol Modular Structure v1.2.3"
+
+    git commit -m "Production: Ghost-Protocol HUD v1.2.5 - Added Theme Switching and Entry Points"
     git push origin main --force
     pause
     goto menu
