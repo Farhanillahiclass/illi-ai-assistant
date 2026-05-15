@@ -1,4 +1,4 @@
-# 🌌 ILLI OS | Neural Intelligence Interface v1.2.6
+# 🌌 ILLI OS | Neural Intelligence Interface v1.2.5
 
 **ILLI OS** is a high-performance, local-first AI assistant for Windows. Engineered by **Muhammad Farhan**, it features a cinematic **Ghost-Protocol HUD** designed with a high-end Cyberpunk HUD aesthetic, providing real-time system automation and intelligent interaction without any paid API dependencies.
 
@@ -6,7 +6,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python" alt="Python">
-  <img src="https://img.shields.io/badge/Version-1.2.6-10b981?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.2.5-10b981?style=for-the-badge" alt="Version">
   <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/Platform-Windows-00ffff?style=for-the-badge&logo=windows" alt="Platform">
 </div>
