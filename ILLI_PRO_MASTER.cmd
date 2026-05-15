@@ -24,9 +24,10 @@ if "%choice%"=="2" (
     echo Cleaning artifacts...
     del /q *.whl *.tar.gz 2>nul
     rmdir /s /q dist build *.egg-info 2>nul
+    if exist LICENSE.md del /q LICENSE.md
     git rm LICENSE.md 2>nul
     git add .
-    git commit -m "UI/UX Update: v1.2.1 - Implemented Typewriter Feed and Fixed Build"
+    git commit -m "Build Fix: v1.2.1 - Resolved distribution errors and added audio hum"
     git push origin main --force
     pause
     goto menu
@@ -34,7 +35,8 @@ if "%choice%"=="2" (
 
 if "%choice%"=="3" (
     echo Building Version 1.2.1...
-    python setup.py sdist bdist_wheel
+    if exist dist rmdir /s /q dist
+    python -m build
     python -m twine upload dist/*
     pause
     goto menu

@@ -5,6 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "illi-ai-professional"
 version = "1.2.1"
+description = "Complete PC & Web Control System with Voice Control and AI Features"
+authors = [{name = "Muhammad Farhan", email = "farhanhomeschooling519@gmail.com"}]
 dependencies = [
     "psutil", "speechrecognition", "pyttsx3", "requests", "GitPython", "cryptography", "numpy"
 ]
+
+[tool.setuptools]
+py-modules = ["ILLI_AI_PROFESSIONAL_FINAL"]
