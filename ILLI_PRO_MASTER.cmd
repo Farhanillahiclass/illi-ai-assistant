@@ -1,5 +1,5 @@
 @echo off
-title "ILLI AI PRO v1.2.5 MASTER | GHOST-PROTOCOL"
+title "ILLI AI PRO v1.2.5 MASTER | ROBOTIC NEURAL HUD"
 color 0A
 
 :menu
@@ -27,7 +27,7 @@ if "%choice%"=="2" (
     del /f /q ILLI_AI_ENHANCED.py ILLI_AI_FIXED.py 2>nul
     git add .
 
-    git commit -m "Production: Ghost-Protocol HUD v1.2.5 - Cinematic Streamlit UI"
+    git commit -m "Production: Robotic Neural HUD v1.2.5 - Pure Tkinter Rewrite"
     git push origin main --force
     pause
     goto menu
