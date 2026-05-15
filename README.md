@@ -1,13 +1,18 @@
-# 🌌 ILLI OS | Neural Intelligence Interface
+# 🌌 ILLI OS | Neural Intelligence Interface v1.2.5
 
-**ILLI OS** is a high-performance, local-first AI assistant for Windows. It features a cinematic **Ghost-Protocol HUD** designed with a "Natural Cyber" palette, providing real-time system automation and intelligent interaction without any paid API dependencies.
+**ILLI OS** is a high-performance, local-first AI assistant for Windows. Engineered by **Muhammad Farhan**, it features a cinematic **Ghost-Protocol HUD** designed with a "Natural Cyber" palette, providing real-time system automation and intelligent interaction without any paid API dependencies.
 
 ---
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
-![Build](https://img.shields.io/badge/Build-v1.2.5-10b981)
-![License](https://img.shields.io/badge/License-MIT-f59e0b)
-![Platform](https://img.shields.io/badge/Platform-Windows-00ffff)
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/Version-1.2.5-10b981?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/Platform-Windows-00ffff?style=for-the-badge&logo=windows" alt="Platform">
+</div>
+
+## 👨‍💻 About the Creator
+**Muhammad Farhan** is a Senior AI Architect and Software Engineer dedicated to building local-first, privacy-centric automation tools. ILLI OS represents the culmination of advanced system integration and immersive UI design.
 
 ## 🚀 Features (No-API Required)
 
