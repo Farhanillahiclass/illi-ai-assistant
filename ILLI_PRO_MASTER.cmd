@@ -1,6 +1,6 @@
 @echo off
-title ILLI AI PRO v1.2.1 - MASTER
-color 0B
+title ILLI AI PRO MASTER | GHOST-PROTOCOL
+color 0A
 
 :menu
 cls
@@ -15,7 +15,7 @@ echo ====================================================
 set /p choice="Enter choice (1-4): "
 
 if "%choice%"=="1" (
-    python ILLI_AI_PROFESSIONAL_FINAL.py
+    streamlit run ILLI_AI_PROFESSIONAL_FINAL.py
     pause
     goto menu
 )
@@ -24,19 +24,17 @@ if "%choice%"=="2" (
     echo Cleaning artifacts...
     del /q *.whl *.tar.gz 2>nul
     rmdir /s /q dist build *.egg-info 2>nul
-    if exist LICENSE.md del /q LICENSE.md
-    git rm LICENSE.md 2>nul
+    del /f /q ILLI_AI_ENHANCED.py ILLI_AI_FIXED.py 2>nul
     git add .
-    git commit -m "Build Fix: v1.2.1 - Resolved distribution errors and added audio hum"
+    git commit -m "Production: Ghost-Protocol Modular Structure v1.2.1"
     git push origin main --force
     pause
     goto menu
 )
 
 if "%choice%"=="3" (
-    echo Building Version 1.2.1...
-    if exist dist rmdir /s /q dist
-    python -m build
+    echo Building...
+    python -m build --sdist --wheel
     python -m twine upload dist/*
     pause
     goto menu
