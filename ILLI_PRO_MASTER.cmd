@@ -1,5 +1,5 @@
 @echo off
-title ILLI AI PRO MASTER | GHOST-PROTOCOL
+title "ILLI AI PRO MASTER | GHOST-PROTOCOL"
 color 0A
 
 :menu
@@ -15,7 +15,7 @@ echo ====================================================
 set /p choice="Enter choice (1-4): "
 
 if "%choice%"=="1" (
-    streamlit run ILLI_AI_PROFESSIONAL_FINAL.py
+    python ILLI_AI_PROFESSIONAL_FINAL.py
     pause
     goto menu
 )
@@ -26,7 +26,7 @@ if "%choice%"=="2" (
     rmdir /s /q dist build *.egg-info 2>nul
     del /f /q ILLI_AI_ENHANCED.py ILLI_AI_FIXED.py 2>nul
     git add .
-    git commit -m "Production: Ghost-Protocol Modular Structure v1.2.2"
+    git commit -m "Production: Ghost-Protocol Modular Structure v1.2.3"
     git push origin main --force
     pause
     goto menu
@@ -34,7 +34,7 @@ if "%choice%"=="2" (
 
 if "%choice%"=="3" (
     echo Building...
-    python -m build --sdist --wheel
+    python -m build
     python -m twine upload dist/*
     pause
     goto menu
