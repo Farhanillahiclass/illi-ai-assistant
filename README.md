@@ -40,6 +40,7 @@ ILLI OS is designed with a **Privacy-First** mindset. Unlike other assistants, i
 The most efficient way to install the stable build is via PyPI:
 ```bash
 pip install illi-ai-professional
+illi-ai --launch
 ```
 
 ### Developer Setup
