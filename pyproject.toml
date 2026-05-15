@@ -4,8 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "illi-ai-professional"
-version = "1.2.0"
+version = "1.2.1"
 dependencies = [
     "psutil", "speechrecognition", "pyttsx3", "requests", "GitPython", "cryptography", "numpy"
 ]
-dynamic = ["description", "authors", "urls"]

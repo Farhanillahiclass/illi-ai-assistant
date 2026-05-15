@@ -1,6 +1,6 @@
 @echo off
-title ILLI AI PRO v1.2.0 - MASTER
-color 0A
+title ILLI AI PRO v1.2.1 - MASTER
+color 0B
 
 :menu
 cls
@@ -24,16 +24,17 @@ if "%choice%"=="2" (
     echo Cleaning artifacts...
     del /q *.whl *.tar.gz 2>nul
     rmdir /s /q dist build *.egg-info 2>nul
+    git rm LICENSE.md 2>nul
     git add .
-    git commit -m "UI/UX Revolution: Natural Cyber Update v1.2.0"
+    git commit -m "UI/UX Update: v1.2.1 - Implemented Typewriter Feed and Fixed Build"
     git push origin main --force
     pause
     goto menu
 )
 
 if "%choice%"=="3" (
-    echo Building Version 1.2.0...
-    python -m build
+    echo Building Version 1.2.1...
+    python setup.py sdist bdist_wheel
     python -m twine upload dist/*
     pause
     goto menu
