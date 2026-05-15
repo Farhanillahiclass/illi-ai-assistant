@@ -3,6 +3,7 @@ dist/
 build/
 *.egg-info/
 __pycache__/
+illi_ai/
 
 # Secrets & Builder Scripts (The Clutter)
 PUBLISH_*.py
@@ -10,6 +11,8 @@ BUILD_*.py
 QUICK_*.py
 setup_*.py
 test_*.py
+*.cmd
+*.bat
 *.whl
 *.tar.gz
 
