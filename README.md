@@ -5,7 +5,7 @@
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
-![Build](https://img.shields.io/badge/Build-v1.2.1-10b981)
+![Build](https://img.shields.io/badge/Build-v1.2.2-10b981)
 ![License](https://img.shields.io/badge/License-MIT-f59e0b)
 ![Platform](https://img.shields.io/badge/Platform-Windows-00ffff)
 
