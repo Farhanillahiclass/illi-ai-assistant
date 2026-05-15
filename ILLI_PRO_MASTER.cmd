@@ -15,7 +15,7 @@ echo ====================================================
 set /p choice="Enter choice (1-4): "
 
 if "%choice%"=="1" (
-    streamlit run ILLI_AI_PROFESSIONAL_FINAL.py
+    python ILLI_AI_PROFESSIONAL_FINAL.py
     pause
     goto menu
 )
