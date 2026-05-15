@@ -1,6 +1,9 @@
-# ILLI OS - Advanced Neural Intelligence Interface
+# ILLI OS - Neural Intelligence Interface v1.2.1
 
-ILLI is a high-performance, futuristic AI assistant for Windows. It features a cinematic HUD interface designed with an organic "Natural Cyber" palette (Emerald & Navy), providing real-time system automation and intelligent interaction.
+ILLI is a high-performance, futuristic AI assistant for Windows. It features a cinematic HUD interface designed with an organic "Natural Cyber" palette, providing real-time system automation and intelligent interaction.
+
+[![PyPI version](https://badge.fury.io/py/illi-ai-professional.svg)](https://badge.fury.io/py/illi-ai-professional)
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
 
 ## 🚀 UI/UX Vision: The Neural Core
 Designed as an advanced AI Operating System interface, ILLI provides a cinematic technical experience:
@@ -39,8 +42,17 @@ ILLI is built with a "Privacy First" architecture:
 
 ## 🚀 Quick Start
 
-### Installation
+### 📦 Install from PyPI
 ```bash
+pip install illi-ai-professional
+```
+
+### 🔧 Manual Installation (GitHub)
+Visitors may clone and view the repository for personal use. Note: Editing access is reserved for the primary maintainer.
+
+```bash
+git clone https://github.com/Farhanillahiclass/illi-ai-assistant.git
+cd illi-ai-assistant
 pip install -r requirements.txt
 ```
 

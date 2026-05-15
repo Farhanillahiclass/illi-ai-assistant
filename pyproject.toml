@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "illi-ai-professional"
+version = "1.2.0"
+dependencies = [
+    "psutil", "speechrecognition", "pyttsx3", "requests", "GitPython", "cryptography", "numpy"
+]
+dynamic = ["description", "authors", "urls"]
