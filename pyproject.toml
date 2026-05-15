@@ -5,10 +5,28 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "illi-ai-professional"
 version = "1.2.1"
-description = "Complete PC & Web Control System with Voice Control and AI Features"
+description = "Complete PC & Web Control System with HUD Dashboard and Voice AI"
+readme = "README.md"
+requires-python = ">=3.8"
 authors = [{name = "Muhammad Farhan", email = "farhanhomeschooling519@gmail.com"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Topic :: Desktop Environment",
+]
 dependencies = [
-    "psutil", "speechrecognition", "pyttsx3", "requests", "GitPython", "cryptography", "numpy"
+    "psutil>=5.9.0",
+    "speechrecognition>=3.10.0",
+    "pyttsx3>=2.90",
+    "requests>=2.28.0",
+    "GitPython>=3.1.0",
+    "cryptography>=3.4.0",
+    "numpy>=1.21.0",
+    "streamlit",
+    "streamlit-lottie",
+    "pywhatkit",
+    "pandas"
 ]
 
 [tool.setuptools]
