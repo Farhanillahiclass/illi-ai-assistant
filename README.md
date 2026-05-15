@@ -14,7 +14,13 @@
 ## 👨‍💻 About the Creator
 **Muhammad Farhan** is a Senior AI Architect and Software Engineer dedicated to building local-first, privacy-centric automation tools. ILLI OS represents the culmination of advanced system integration and immersive UI design.
 
-## 🚀 Features (No-API Required)
+## 🛡️ Ghost-Protocol Architecture
+ILLI OS is designed with a **Privacy-First** mindset. Unlike other assistants, it requires:
+- **No Cloud APIs**: All logic stays on your machine.
+- **Zero Subscription Fees**: Totally free and open-source.
+- **Offline Capabilities**: Voice commands and system controls work without an internet connection.
+
+##  Features (No-API Required)
 
 - **Neural Core**: Immersive High-Performance Tkinter HUD with 3D animated orb.
 - **Voice Command Center**: Offline Speech Recognition with **Adaptive Voice Training**.
@@ -30,7 +36,8 @@
 
 ## 🔧 Installation
 
-### Standard
+### 📦 Option 1: Standard Installation (Recommended)
+The easiest way to install ILLI OS is via PyPI:
 ```bash
 pip install illi-ai-professional
 ```
