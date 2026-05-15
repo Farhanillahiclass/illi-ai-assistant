@@ -1,0 +1,18 @@
+# Build and Dist
+dist/
+build/
+*.egg-info/
+__pycache__/
+
+# Secrets & Builder Scripts (The Clutter)
+PUBLISH_*.py
+BUILD_*.py
+QUICK_*.py
+setup_*.py
+test_*.py
+*.whl
+*.tar.gz
+
+# Keep only the master controller and main app
+!ILLI_PRO_MASTER.cmd
+!ILLI_AI_PROFESSIONAL_FINAL.py
