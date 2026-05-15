@@ -1,12 +1,14 @@
-# ILLI OS - Advanced Neural Interface
+# ILLI OS - Advanced Neural Intelligence Interface
 
-ILLI is a high-end, futuristic AI assistant for Windows, featuring an immersive 8K-resolution HUD (Heads-Up Display) with glassmorphism aesthetics and real-time system automation.
+ILLI is a high-performance, futuristic AI assistant for Windows. It features a cinematic HUD interface designed with an organic "Natural Cyber" palette (Emerald & Navy), providing real-time system automation and intelligent interaction.
 
 ## 🚀 UI/UX Vision: The Neural Core
 Designed as an advanced AI Operating System interface, ILLI provides a cinematic technical experience:
-- **Core Aesthetic**: Deep Space Black with "Ghost-Cyan" (#00ffff) and "Plasma-Purple" accents.
+- **Core Aesthetic**: Deep Navy (#0d1117) with "Emerald-Green" (#10b981) and "Amber" (#f59e0b) accents.
 - **Immersive HUD**: Modular grid layout with neon-glow borders and glassmorphism panels.
 - **Neural Core Animation**: A 3D translucent wireframe orb that reacts to audio and system processing states.
+![Version](https://img.shields.io/badge/version-1.2.0-emerald)
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
 
 ## 🌟 Key Modules
 

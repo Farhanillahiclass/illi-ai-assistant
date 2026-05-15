@@ -1,6 +1,6 @@
 @echo off
-title ILLI AI PRO MASTER
-color 0B
+title ILLI AI PRO v1.2.0 - MASTER
+color 0A
 
 :menu
 cls
@@ -8,10 +8,11 @@ echo ====================================================
 echo    ILLI AI PROFESSIONAL - MASTER CONTROL PANEL
 echo ====================================================
 echo 1. Start ILLI AI Professional
-echo 2. Sync to GitHub (Clean Mode)
-echo 3. Exit
+echo 2. Clean ^& Sync to GitHub
+echo 3. Build ^& Publish to PyPI
+echo 4. Exit
 echo ====================================================
-set /p choice="Enter choice (1-3): "
+set /p choice="Enter choice (1-4): "
 
 if "%choice%"=="1" (
     python ILLI_AI_PROFESSIONAL_FINAL.py
@@ -20,11 +21,22 @@ if "%choice%"=="1" (
 )
 
 if "%choice%"=="2" (
+    echo Cleaning artifacts...
+    del /q *.whl *.tar.gz 2>nul
+    rmdir /s /q dist build *.egg-info 2>nul
     git add .
-    git commit -m "Restore professional repository state"
+    git commit -m "UI/UX Revolution: Natural Cyber Update v1.2.0"
     git push origin main --force
     pause
     goto menu
 )
 
-if "%choice%"=="3" exit
+if "%choice%"=="3" (
+    echo Building Version 1.2.0...
+    python -m build
+    python -m twine upload dist/*
+    pause
+    goto menu
+)
+
+if "%choice%"=="4" exit
