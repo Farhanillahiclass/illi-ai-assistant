@@ -1,6 +1,6 @@
 # 🌌 ILLI OS | Robotic Neural HUD v1.2.5
 
-**ILLI OS** is a high-performance, local-first AI assistant for Windows. Engineered by **Muhammad Farhan**, it features a cinematic **Robotic Neural HUD** designed with a dark, 3D Cyberpunk aesthetic, providing real-time system automation and intelligent interaction without any paid API dependencies.
+**ILLI OS** is a high-performance, local-first AI assistant for Windows. Engineered by **Muhammad Farhan**, it features a cinematic **Robotic Neural HUD** designed with a dark, 3D Cyberpunk aesthetic and local-first capabilities.
 
 ---
 
@@ -12,42 +12,39 @@
 </div>
 
 ## 👨‍💻 About the Creator
-**Muhammad Farhan** is a Senior AI Architect and Software Engineer specializing in local-first, privacy-centric automation tools. With a deep background in system-level integration and human-computer interaction, Farhan's mission with ILLI OS is to prove that high-end AI assistants don't need cloud APIs to be powerful. He focuses on bridging the gap between cinematic HUD aesthetics and raw machine performance.
+**Muhammad Farhan** is a Senior AI Architect and Software Engineer specializing in local-first, privacy-centric automation tools.
 
 ## 🛡️ Ghost-Protocol Architecture
-ILLI OS is designed with a **Privacy-First** mindset. Unlike other assistants, it requires:
-- **No Cloud APIs**: All logic stays on your machine.
-- **Zero Subscription Fees**: Totally free and open-source.
-- **Offline Capabilities**: Voice commands and system controls work without an internet connection.
+ILLI OS is designed with a **Privacy-First** mindset. It requires:
+- **No Cloud APIs** by default (user can opt-in to cloud providers).
+- **Zero Subscription Fees** for the open-source local components.
+- **Offline Capabilities** for core voice/command features.
 
-## 🚀 Features (No-API Required)
+## 🚀 Features
 
-- **Neural Core**: Immersive High-Performance Tkinter HUD with a rotating 3D particle sphere.
-- **Voice Command Center**: Offline Speech Recognition with **Adaptive Voice Training**.
-- **OS Command Center**: Deep hardware integration for process and file management.
-- **Tactical Biometrics**: Real-time CPU, RAM, and Network energy bars with **Hex-Grid HUD**.
-- **Ghost Comms**: Native WhatsApp and Email automation.
+- **Neural Core**: High-Performance Tkinter HUD.
+- **Voice Command Center**: Offline Speech Recognition.
+- **OS Command Center**: Hardware integration for process and file management.
+- **Tactical Biometrics**: Real-time CPU, RAM, and Network energy bars.
+- **Ghost Comms**: Local automation for messaging and email (requires user configuration).
 
 ## 🛠️ Tech Stack
-- **Frontend**: Python Tkinter (Local Native GUI)
+- **Frontend**: Python Tkinter
 - **Backend**: Python 3.x
 - **System**: psutil, subprocess, os
 - **Voice**: speech_recognition, pyttsx3
 
-## 🔧 Installation
+## 🔧 Installation (Developer)
 
-### 📦 Option 1: Standard Installation (Recommended)
-The most efficient way to install the stable build is via PyPI:
-```bash
-pip install illi-ai-professional
-```
-
-### Developer Setup
 ```bash
 git clone https://github.com/Farhanillahiclass/illi-ai-assistant.git
+cd illi-ai-assistant
 pip install -r requirements.txt
 streamlit run ILLI_AI_PROFESSIONAL_FINAL.py
 ```
+
+Notes:
+- I removed a previous PyPI install instruction from this README. If you have published a PyPI package, reply with the package name and I will restore a correct installation line.
 
 ---
 **Made with 🧪 Muhammad Farhan**
